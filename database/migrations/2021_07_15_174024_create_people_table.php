@@ -21,6 +21,10 @@ class CreatePeopleTable extends Migration
             $table->string('phone');
             $table->string('landline');
             $table->string('email');
+            $table->foreignId('id_country')->references('id')->on('countries');
+            $table->foreignId('id_departament')->references('id')->on('departaments');
+            $table->foreignId('id_municipality')->references('id')->on('municipalities');
+            $table->foreignId('id_locality')->references('id')->on('localities');
             $table->string('address');
             $table->date('birthdate');
             $table->boolean('isActive')->index()->default(false);
