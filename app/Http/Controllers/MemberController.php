@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Member;
+use App\Models\{ Member, Person };
 use Illuminate\Http\Request;
 
 class MemberController extends Controller
@@ -14,7 +14,9 @@ class MemberController extends Controller
      */
     public function index()
     {
-        //
+        // inner join - left join - base de datos relacionales
+        $members = Member::query()->with('people')->with('contries')->where('isActive',true)->paginate(10);
+
     }
 
     /**
